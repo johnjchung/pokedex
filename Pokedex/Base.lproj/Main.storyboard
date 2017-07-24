@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EqT-W7-4y0">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="English_Pokémon_logo.svg.png" translatesAutoresizingMaskIntoConstraints="NO" id="vyp-tc-FYe">
+                                <rect key="frame" x="40" y="204.5" width="520" height="191"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vyp-tc-FYe" secondAttribute="height" multiplier="125:46" id="vv3-kz-gHf"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RGX-7F-6hZ">
+                                <rect key="frame" x="251" y="416" width="99" height="30"/>
+                                <state key="normal" title="Enter Pokedex"/>
+                                <connections>
+                                    <segue destination="Gxs-9J-WSv" kind="show" id="w5l-8S-yo8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vyp-tc-FYe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5ie-3m-Qyt"/>
+                            <constraint firstItem="vyp-tc-FYe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="5jM-DO-TWc"/>
+                            <constraint firstItem="RGX-7F-6hZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ABF-i5-2cM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vyp-tc-FYe" secondAttribute="trailing" constant="20" id="NPC-LG-0y7"/>
+                            <constraint firstItem="RGX-7F-6hZ" firstAttribute="top" secondItem="vyp-tc-FYe" secondAttribute="bottom" constant="20" id="f3Z-BD-Lgn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ScB-uc-dOH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1152" y="338"/>
+        </scene>
+        <!--Pokedex View Controller-->
+        <scene sceneID="QbH-rk-JZi">
+            <objects>
+                <viewController id="Gxs-9J-WSv" customClass="PokedexViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="66I-j3-ql0"/>
+                        <viewControllerLayoutGuide type="bottom" id="4v0-V9-GAN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5wN-n9-Xlp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="z6n-hN-9aN">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GdH-yn-nzM">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vQb-00-3Ui">
+                                            <size key="itemSize" width="600" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PokedexCell" id="jF2-k1-4hv" customClass="PokedexCollectionViewCell" customModule="Pokedex" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXI-lf-Yfe">
+                                                            <rect key="frame" x="18" y="14.666666666666668" width="42" height="20.333333333333332"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </view>
+                                                <constraints>
+                                                    <constraint firstItem="dXI-lf-Yfe" firstAttribute="centerY" secondItem="jF2-k1-4hv" secondAttribute="centerY" id="bjE-gD-Hm5"/>
+                                                    <constraint firstItem="dXI-lf-Yfe" firstAttribute="leading" secondItem="jF2-k1-4hv" secondAttribute="leadingMargin" constant="10" id="p2C-xt-7Kv"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="nameLabel" destination="dXI-lf-Yfe" id="DhV-GA-sdW"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="GdH-yn-nzM" id="aLD-OG-wUS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kFl-KE-dfX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1033" y="990"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5io-A1-vHf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EqT-W7-4y0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aJC-sC-98N">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fpP-ma-4cB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oSa-xf-Fw1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="367" y="-354"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="English_Pokémon_logo.svg.png" width="2000" height="736"/>
+    </resources>
+</document>
