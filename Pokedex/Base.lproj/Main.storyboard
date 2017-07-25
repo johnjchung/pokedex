@@ -115,6 +115,37 @@
             </objects>
             <point key="canvasLocation" x="1033" y="990"/>
         </scene>
+        <!--Pokemon Detail View Controller-->
+        <scene sceneID="GZG-x8-e5b">
+            <objects>
+                <viewController storyboardIdentifier="PokemonDetail" id="Ofj-Yk-VJo" customClass="PokemonDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pzb-hE-AJs"/>
+                        <viewControllerLayoutGuide type="bottom" id="3rD-bP-4vh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nSv-tV-1SH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="792-n6-5Rj">
+                                <rect key="frame" x="132" y="40" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="15i-i8-Ny4"/>
+                                    <constraint firstAttribute="width" constant="150" id="VeB-FL-EIi"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="792-n6-5Rj" firstAttribute="top" secondItem="pzb-hE-AJs" secondAttribute="bottom" constant="20" id="ZRO-gP-iaW"/>
+                            <constraint firstItem="792-n6-5Rj" firstAttribute="centerX" secondItem="nSv-tV-1SH" secondAttribute="centerX" id="biO-7h-FC5"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ci9-i4-7ZM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1846" y="990"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="5io-A1-vHf">
             <objects>
