@@ -113,12 +113,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kFl-KE-dfX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1033" y="990"/>
+            <point key="canvasLocation" x="1152" y="1292"/>
         </scene>
         <!--Pokemon Detail View Controller-->
         <scene sceneID="GZG-x8-e5b">
             <objects>
-                <viewController storyboardIdentifier="PokemonDetail" id="Ofj-Yk-VJo" customClass="PokemonDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PokemonDetail" id="Ofj-Yk-VJo" customClass="PokemonDetailViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pzb-hE-AJs"/>
                         <viewControllerLayoutGuide type="bottom" id="3rD-bP-4vh"/>
@@ -190,11 +190,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="UIImageView" destination="792-n6-5Rj" id="OtQ-xk-ncz"/>
-                        <outlet property="UILabel" destination="3Zp-fQ-hET" id="x5H-pe-SdH"/>
                         <outlet property="attackLabel" destination="bcm-VX-O4g" id="RMY-B9-rYk"/>
                         <outlet property="defenseLabel" destination="wv1-WD-bmW" id="OYL-Dj-jUP"/>
+                        <outlet property="image" destination="792-n6-5Rj" id="5Lt-3c-lVK"/>
                         <outlet property="movesList" destination="eb1-uT-WOi" id="0u4-4x-9Vk"/>
+                        <outlet property="nameLabel" destination="3Zp-fQ-hET" id="KHh-n6-LeI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ci9-i4-7ZM" userLabel="First Responder" sceneMemberID="firstResponder"/>

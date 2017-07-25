@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class PokemonDetailViewController: UIViewController {
 
-    @IBOutlet var UIImageView: UIImageView!
+    @IBOutlet var image: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var attackLabel: UILabel!
     @IBOutlet var defenseLabel: UILabel!
-    
     @IBOutlet var movesList: UICollectionView!
+
     
     
     override func viewDidLoad() {
