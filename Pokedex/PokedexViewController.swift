@@ -2,61 +2,61 @@
 //  PokedexViewController.swift
 //  Pokedex
 //
-//  Created by John Chung on 1/16/17.
+//  Created by John on 7/25/17.
 //  Copyright © 2017 John Chung. All rights reserved.
 //
 
+import UIKit
 import Alamofire
 import SwiftyJSON
-import UIKit
 
 class PokedexViewController: UIViewController {
 
+  @IBOutlet var searchBar: UISearchBar!
   @IBOutlet var collectionView: UICollectionView!
-    
   var pokemonData: [PokemonModel] = []
+  var filteredData: [PokemonModel] = []
   
-    override func viewDidLoad() {
-      super.viewDidLoad()
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-      collectionView.backgroundColor = UIColor.lightGray
-      collectionView.delegate = self
-      collectionView.dataSource = self
+    collectionView.backgroundColor = UIColor.lightGray
+    collectionView.delegate = self
+    collectionView.dataSource = self
       
-      self.automaticallyAdjustsScrollViewInsets = false
+    self.automaticallyAdjustsScrollViewInsets = false
 
-      self.navigationItem.title = "My Pokedex"
-        
-      fetchData(url: "http://pokeapi.co/api/v1/pokedex/1/", completion: {
-        self.collectionView.reloadData()
-      })
-    }
-
-    override func didReceiveMemoryWarning() {
-      super.didReceiveMemoryWarning()
-    }
+    self.navigationItem.title = "My Pokedex"
     
-    func fetchData(url: String, completion: @escaping () -> Void) {
-        Alamofire.request(url).responseJSON { response in
-            switch response.result {
-            case .success(_):
-                do { let responseData: JSON = try JSON(data: response.data!)
-                    if let pokemon = responseData["pokemon"].array {
-                        self.pokemonData = pokemon.map({(json: JSON) -> PokemonModel in
-                            PokemonModel(name: json["name"].stringValue, resourceURI: json["resource_uri"].stringValue)
-                        })
-                    }
-                }
-                catch let error {
-                    print("error occured \(error)")
-                }
-            case .failure(let error):
-                self.pokemonData = []
-                print(error)
-            }
-            completion()
+    fetchData("http://pokeapi.co/api/v1/pokedex/1/", completion: {
+      self.collectionView.reloadData()
+    })
+    
+    searchBar.delegate = self
+  }
+
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+  }
+  
+  func fetchData(_ url: String, completion: @escaping () -> Void) {
+    Alamofire.request(url).responseData { response in
+      switch response.result {
+      case .success(_):
+        let responseData: JSON = JSON(data: response.data!)
+        if let pokemon = responseData["pokemon"].array {
+          self.pokemonData = pokemon.map({ (json: JSON) -> PokemonModel in
+            PokemonModel(name: json["name"].string!, resourceURI: json["resource_uri"].string!)
+          })
         }
+      case .failure(let error):
+        self.pokemonData = []
+        self.filteredData = self.pokemonData
+        print(error)
+      }
+      completion()
     }
+  }
 
 }
 
@@ -73,22 +73,31 @@ extension PokedexViewController: UICollectionViewDelegateFlowLayout {
 extension PokedexViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let newCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokedexCell", for: indexPath) as! PokedexCollectionViewCell
-        let pokemonModel = pokemonData[indexPath.row]
+        let pokemonModel = filteredData[indexPath.row]
         newCell.nameLabel.text = pokemonModel.name.capitalized
         newCell.backgroundColor = UIColor.white
         return newCell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pokemonData.count
+        return filteredData.count
     }
 }
 
 extension PokedexViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let detailController: PokemonDetailViewController = storyboard.instantiateViewController(withIdentifier: "PokemonDetail") as! PokemonDetailViewController
-        detailController.resourceURI = pokemonData[indexPath.row].resourceURI
-        self.navigationController?.pushViewController(detailController, animated: true)
+        let detailViewController: PokemonDetailViewController = storyboard.instantiateViewController(withIdentifier: "PokemonDetail") as! PokemonDetailViewController
+        detailViewController.resourceURI = filteredData[indexPath.row].resourceURI
+        self.navigationController?.pushViewController(detailViewController, animated: true)
+    }
+}
+
+extension PokedexViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredData = pokemonData.filter({ (pokemon: PokemonModel) -> Bool in
+            return pokemon.name.hasPrefix(searchText.lowercased()) || searchText == ""
+        })
+        collectionView.reloadData()
     }
 }
