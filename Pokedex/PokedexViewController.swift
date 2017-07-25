@@ -88,6 +88,7 @@ extension PokedexViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let detailController: PokemonDetailViewController = storyboard.instantiateViewController(withIdentifier: "PokemonDetail") as! PokemonDetailViewController
+        detailController.resourceURI = pokemonData[indexPath.row].resourceURI
         self.navigationController?.pushViewController(detailController, animated: true)
     }
 }
