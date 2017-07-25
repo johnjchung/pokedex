@@ -162,13 +162,28 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="EYk-dy-oxG">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="EYk-dy-oxG" userLabel="Move Cell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ti-Zb-FNS" userLabel="Move Name">
+                                                    <rect key="frame" x="20" y="14.666666666666664" width="42" height="20.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="3ti-Zb-FNS" firstAttribute="centerY" secondItem="EYk-dy-oxG" secondAttribute="centerY" id="6Zg-ja-cpq"/>
+                                            <constraint firstItem="3ti-Zb-FNS" firstAttribute="leading" secondItem="EYk-dy-oxG" secondAttribute="leading" constant="20" id="BSt-hG-OeH"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="backgroundView" destination="3ti-Zb-FNS" id="KV7-sw-R3S"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
