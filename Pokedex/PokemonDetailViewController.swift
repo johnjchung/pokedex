@@ -28,6 +28,13 @@ class PokemonDetailViewController: UIViewController {
             self.nameLabel.text = pokemonData["name"].string
             self.attackLabel.text = String(format: "Attack: %d", pokemonData["attack"].intValue)
             self.defenseLabel.text = String(format: "Defense: %d", pokemonData["defense"].intValue)
+            let imageURL = String(format: "http://pokeapi.co/media/img/%d.png", pokemonData["pkdx_id"].int!)
+            self.loadAndSetImage(imageURL)
+            //let movesArray: [JSON] = pokemonData["moves"].array!
+            //self.moves = movesArray.map({ (json: JSON) -> String in
+                //json["name"].string!
+            //})
+            //self.movesList.reloadData()
         }
     }
     
@@ -49,6 +56,14 @@ class PokemonDetailViewController: UIViewController {
                 }
             case .failure(let error):
                 print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func loadAndSetImage(_ url: String) {
+        if let pictureURL = URL(string: url) {
+            if let data = try? Data(contentsOf: pictureURL) {
+                image.image = UIImage(data: data)
             }
         }
     }
