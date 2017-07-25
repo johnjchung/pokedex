@@ -10,6 +10,14 @@ import UIKit
 
 class PokemonDetailViewController: UIViewController {
 
+    @IBOutlet var UIImageView: UIImageView!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var attackLabel: UILabel!
+    @IBOutlet var defenseLabel: UILabel!
+    
+    @IBOutlet var movesList: UICollectionView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
