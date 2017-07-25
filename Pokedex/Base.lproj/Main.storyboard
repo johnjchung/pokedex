@@ -155,10 +155,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wv1-WD-bmW" firstAttribute="leading" secondItem="nSv-tV-1SH" secondAttribute="leadingMargin" constant="20" id="3U6-vi-KeA"/>
+                            <constraint firstItem="wv1-WD-bmW" firstAttribute="leading" secondItem="nSv-tV-1SH" secondAttribute="leading" constant="20" id="3U6-vi-KeA"/>
                             <constraint firstItem="bcm-VX-O4g" firstAttribute="top" secondItem="3Zp-fQ-hET" secondAttribute="bottom" constant="20" id="8KA-7U-leH"/>
                             <constraint firstItem="3Zp-fQ-hET" firstAttribute="top" secondItem="792-n6-5Rj" secondAttribute="bottom" constant="10" id="MgA-UX-MXp"/>
-                            <constraint firstItem="bcm-VX-O4g" firstAttribute="leading" secondItem="nSv-tV-1SH" secondAttribute="leadingMargin" constant="20" id="WZG-is-m4G"/>
+                            <constraint firstItem="bcm-VX-O4g" firstAttribute="leading" secondItem="nSv-tV-1SH" secondAttribute="leading" constant="20" id="WZG-is-m4G"/>
                             <constraint firstItem="3Zp-fQ-hET" firstAttribute="centerX" secondItem="nSv-tV-1SH" secondAttribute="centerX" id="XXU-8b-h5g"/>
                             <constraint firstItem="792-n6-5Rj" firstAttribute="top" secondItem="pzb-hE-AJs" secondAttribute="bottom" constant="20" id="ZRO-gP-iaW"/>
                             <constraint firstItem="792-n6-5Rj" firstAttribute="centerX" secondItem="nSv-tV-1SH" secondAttribute="centerX" id="biO-7h-FC5"/>
